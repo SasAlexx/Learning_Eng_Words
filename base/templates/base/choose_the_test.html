@@ -1,0 +1,20 @@
+{% extends 'base/master.html' %}
+
+{% block content %}
+    <h1><a href="/ ">Learning Eng Words</a> </h1>
+    <h2>Choose variation of the test:</h2>
+    <hr>
+    <a href="knowledge-test/{{ test.0 }}">Test for all words</a>
+    <hr>
+    <form action="knowledge-test/{{ test.1 }}/" method="post" >
+        {% csrf_token %}
+
+        <p>With this test you can choose amount of words you want to test. Max value you can choose: {{ all_words }}</p>
+        <p>Select: <input type="number" min=1 name="test" placeholder="max:{{ all_words }}"
+               max="{{ all_words }}"  value="{{ all_words }}"></p>
+
+        <input type="submit" value="Start">
+    </form>
+    <hr>
+
+{% endblock %}

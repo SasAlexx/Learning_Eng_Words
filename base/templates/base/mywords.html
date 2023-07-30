@@ -1,0 +1,18 @@
+{% extends "base/master.html" %}
+
+{% block title %}
+    List of your words:
+{% endblock %}
+
+{% block content %}
+    <h1><a href="/ ">Learning Eng Words</a> </h1>
+
+    <ul>
+        {% for x in mywords %}
+            <li><a href="details/{{ x.id }}"> {{ x.eng_word }}: {{ x.translate_word }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="/create_word">Add a new word</a>
+
+{% endblock %}
+

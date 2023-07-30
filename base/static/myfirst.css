@@ -1,0 +1,9 @@
+body {
+    background-color: cornsilk;
+    font-family: "Berlin Sans FB", serif;
+}
+table {
+    width: 50%;
+    height: 100%;
+    border: darkslategray;
+}

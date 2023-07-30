@@ -1,0 +1,16 @@
+env\scripts\activate - activating virtual environment
+
+
+CREATE:
+
+READ:
+    Word.object.all() - get all objects from db
+
+UPDATE:
+
+DELETE:
+
+
+master.html - parent file? which contain blocks of html template. You can make a 'template inheritance' in
+                                                                    all html templates.
+

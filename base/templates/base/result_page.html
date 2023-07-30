@@ -1,0 +1,15 @@
+{% extends 'base/master.html' %}
+
+{% block content %}
+<h1><a href="/ ">Learning Eng Words</a> </h1>
+<h2>Your results:</h2>
+
+{% for word in results_lis %}
+{% if word.2 == True %}
+<h4>{{ word.0 }}: <span style="color: yellowgreen">{{ word.1 }}</span></h4>
+{% else %}
+<h4>{{ word.0 }}: <span style="color: #ff0900">{{ word.1 }}</span></h4>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base/master.html" %}
+
+{% block content %}
+
+<h1><a href="/ ">Learning Eng Words</a> </h1>
+
+<form action="" method="post">
+    {% csrf_token %} {# For secure data #}
+    {{ form.as_p }} {# For viewing all form's field #}
+    <button type="submit">Submit</button>
+</form>
+
+<hr>
+<p>Check out all your <a href="/mywords">words</a></p>
+
+{% endblock %}

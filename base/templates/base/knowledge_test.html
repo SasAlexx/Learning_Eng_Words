@@ -1,0 +1,18 @@
+{% extends 'base/master.html' %}
+
+{% block content %}
+<h1><a href="/ ">Learning Eng Words</a> </h1>
+<h1>Knowledge test of your words</h1>
+<p>Choose the correct word</p>
+
+<form action="{% url 'your-results' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" name="answer" value="Отправить">
+
+</form>
+{% for key, value in results.items %}
+<p>{{ key }}: {{ value }}</p>
+{% endfor %}
+{% endblock %}

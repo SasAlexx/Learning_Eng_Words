@@ -1,0 +1,27 @@
+{% extends "base/master.html" %}
+
+{% block title %}
+    Details about {{ myword.eng_word}}: {{ myword.translate_word }}
+{% endblock %}
+
+{% block content %}
+    <h1><a href="/ ">Learning Eng Words</a> </h1>
+    <hr>
+    <h2>Word details:</h2>
+    <p>{{ myword.eng_word}}: {{ myword.translate_word }}</p>
+    <p>Win points: {{ myword.score }} </p>
+    <p>Saved at: {{ myword.date }}</p>
+
+
+    <a href="{% url 'delete-word' myword.id %}">Delete</a>
+    <a href="{% url 'update-word' myword.id %}">Edit</a>
+{#    <a href={% url 'update_word' word.id %}>Edit</a>#}
+{#    <form method="POST" action="">#}
+{#        {% csrf_token %}#}
+{#        <p>Are you sure you want to delete "{{ obj }}"?</p>#}
+{##}
+{#        <input type="submit" value="Confirm" />#}
+{#    </form>#}
+    <hr>
+    <p>Back to <a href="/mywords">Words</a></p>
+{% endblock %}

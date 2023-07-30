@@ -1,0 +1,11 @@
+accessify==0.3.1
+asgiref==3.6.0
+distlib==0.3.6
+Django==4.1.7
+django-environ==0.10.0
+filelock==3.11.0
+platformdirs==3.2.0
+psycopg2-binary==2.9.5
+sqlparse==0.4.3
+tzdata==2023.2
+virtualenv==20.21.0
