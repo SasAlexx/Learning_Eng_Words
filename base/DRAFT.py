@@ -1,10 +1,2 @@
-dic = {
-    'hello': 'привіт',
-    'hello1': 'привіт',
-    'asd': 'asdasd',
-    'asdasdsa': 'qweqwe',
-}
-
-new_dic = {key: dic[key] for key in dic if key not in ['hello', 'hello1']}
-
-print(new_dic)
+lis = [1,2,3,4,5]
+print(lis[-2:])

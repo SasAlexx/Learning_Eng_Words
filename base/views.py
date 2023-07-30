@@ -71,11 +71,10 @@ def deleteWord(request, id):
     return render(request, 'base/delete.html', {'obj': word})
 
 def chooseTest(request):
-    test = ('asd', '2')
+    test = ('1', '2','3')
     all_words = len(Word.objects.all())
 
     context = {
-        # 'form': form
         'test': test,
         'all_words': all_words
     }
@@ -84,15 +83,29 @@ def chooseTest(request):
 def knowlegeTest(request, test):
     #test in arguments must be the same with <str:test> in url
     print(test) #Test which user has chosen.
+
     results = {}
     num = len(Word.objects.all()) #Amount of all words
-    if request.method == 'POST':
-        num = int(request.POST['test'])
     word_answer = {word['eng_word']: word['translate_word'] for word in Word.objects.all().values()}
-
     answers = [word['translate_word'] for word in Word.objects.all().values()]
-    word_choices = sample([(word, sample([word_answer[word]] + list(filter(lambda x: x != word_answer[word],
-                    sample(answers, len(answers))))[:3], 4)) for word in word_answer],num)
+    word_choices = [(word, sample([word_answer[word]] + list(filter(lambda x: x != word_answer[word],
+                    sample(answers, len(answers))))[:3], 4)) for word in word_answer]
+
+    print(type(word_choices))
+    if test == '1':
+        word_choices = sample(word_choices, num)
+    elif request.method == 'POST' and test == '2':
+        num = int(request.POST['test'])
+        word_choices = sample(word_choices, num)
+    elif request.method == 'POST' and test == '3':
+        if 'check' in request.POST:
+            num = -int(request.POST['test'])
+            word_choices = word_choices[:num-1:-1]
+            print(word_choices)
+        else:
+            num = int(request.POST['test'])
+            word_choices = word_choices[:num]
+    print(num)
 
     #we take eng_word and translate_word from db and fill the rest with random translate words
 

@@ -6,10 +6,11 @@
 
 {% block content %}
     <h1><a href="/ ">Learning Eng Words</a> </h1>
-
+    <p>Here you can see all words you have added. Also, every word have own score point. Scores show how many times you
+    gave right answer in the test.</p>
     <ul>
         {% for x in mywords %}
-            <li><a href="details/{{ x.id }}"> {{ x.eng_word }}: {{ x.translate_word }}</a></li>
+            <li><a href="details/{{ x.id }}"> {{ x.eng_word }}: {{ x.translate_word }}</a> - Score: {{ x.score }}</li>
         {% endfor %}
     </ul>
     <a href="/create_word">Add a new word</a>
