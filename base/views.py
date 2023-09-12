@@ -161,28 +161,3 @@ def results(request):
         'lis':[['qwewqe', 1],['asdf', 0]],
     }
     return render(request, 'base/result_page.html', context)
-
-
-def testing(request):
-    word_choices = [
-        ('apple', ['яблоко', 'банан', 'груша']),
-        ('dog', ['собака', 'кошка', 'крыса']),
-        ('sun', ['солнце', 'луна', 'звезда']),
-        ('frog', ['жаба', 'жопа', 'жук']),
-    ]
-
-    if request.method == 'POST':
-        form = TestForm(request.POST, word_choices=word_choices)
-        if form.is_valid():
-            for word, _ in word_choices:
-                selected_answers = form.cleaned_data[word]
-                # Обработка выбранных ответов для каждого слова
-                print(f"Для слова '{word}' выбраны ответы: {selected_answers}")
-
-    else:
-        form = TestForm(word_choices=word_choices)
-
-    context = {
-        'form': form,
-    }
-    return render(request, 'base/template.html', context)
