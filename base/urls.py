@@ -11,6 +11,5 @@ urlpatterns = [
     path('your-results/', views.results, name='your-results'),
     path('choose-test/', views.chooseTest, name='choose-test'),
 
-    path('testing/', views.testing, name='testing'),
 ]
 
